@@ -1,0 +1,24 @@
+site_name: CoordML Documentation
+
+nav:
+  - Home: 'index.md'
+  - 'Quick Start':
+    - 'Installation': './quick_start/installation.md'
+  - 'CLI':
+    - 'Basic Usage': './cli/basic_usage.md'
+  - 'Sircle DSL':
+    - 'Introduction to Sircle': './sircle_dsl/introduction.md'
+    - 'Basics': './sircle_dsl/basics.md'
+  - 'Central Server API':
+    - 'Overview': './central_api/overview.md'
+  - 'Runner Instance':
+    - 'Overview': './runner_api/overview.md'
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tabs
+
+plugins:
+  - search
