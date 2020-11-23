@@ -18,6 +18,28 @@ The above `Task` datatype consists of three elements,
 - Arguments, which specify the argument passed to the executable.
 - Tag, which identifies the task and helps experiment results handling.
 
+Apart from the above constructor, we can also construct a `Task` with two operators:
+
+- `task1 >> task2`, which defines a task where `tasks1` is executed first, then `task2`.
+- `task1 || task2`, which defines a task where `task1` and `task2` can be executed in paralell.
+
+Sircle DSL is highly expressive for defining computational tasks. For a real-world example, considering the conifig
+```
+def config = {
+    "seed" -> [1, 2, 3],
+    "dataset" -> ["cora", "citeseer", "pubmed"],
+    "model" -> ["GCN", "GAT"]
+}
+```
+and we want to run experiments with combination of different argments. We would like to run experiments with different seeds in parallel, and for any specific seeds, we run the experiments sequentially. To express the above task structures, we can write Sircle code like
+```
+def resolve = config => mkPar {
+    def c = restrict ["dataset", "model"] config;
+    for seed <- config."seed" do
+      mkSeq $ map (x => mkTask "main.py" x $ x + { "seed" -> seed }) $ namedProd c
+}
+```
+
 On the other hand, from the short example above, we can see some basic properties of Sircle.
 
 ## A first glance of Sircle
