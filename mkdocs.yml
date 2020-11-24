@@ -10,6 +10,7 @@ nav:
     - 'Introduction to Sircle': './sircle_dsl/introduction.md'
     - 'Basics': './sircle_dsl/basics.md'
     - 'Prelude Functions': './sircle_dsl/prelude.md'
+    - 'Formal Grammar': './sircle_dsl/grammar.md'
   - 'Central Server API':
     - 'Overview': './central_api/overview.md'
   - 'Runner Instance':
