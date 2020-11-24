@@ -62,3 +62,41 @@ def add = x => y => x + y
 map (add 1) [1, 2, 3]
 ```
 in Sircle, which will produce `[2, 3, 4]`.
+
+### Name Binding
+
+In sircle, we can use the `def` keyword to bind a name. For example,
+```
+def x = 1
+```
+And type annotation is also possible, we can write
+```
+def x: Int = 1
+```
+The evaluator will check the value type of the right hand and verify that it is consistent with the type annotation. In other words, the following binding
+```
+def x: Int = "1"
+```
+will result in a runtime error.
+
+Actually, when we omit the type annotation in the binding, the type is assumed `Any`, which will be consistent with any value types.
+
+In Sircle source, name bindings can happen both at global level and in block expressions. For instance,
+```
+def x = 1
+
+def main = unused: Unit => {
+    def y = x + 1;
+    y = 2 * y;
+    y
+}
+```
+A block expression contains a sequence of effective statements separated by commas, enclosed in curly braces. There are three types of effects:
+
+- Binding. Example: `def y = x + 1`. This will bind value `x + 1` to name `y` and evaluate to the binded value.
+- Reassignment. Example: `y = 2 * y`. This will assign a new value `2 * y` to the name `y` and evaluate to the new value.
+- Eval. Example: `y`. This is simply a pure expression and will evaluate to a value.
+
+The block expression will evaluate the effects one by one, with possibly modification to variable environments, and return the value of the last effect. This style is similar to Scala.
+
+The global bindings, unlike bindings in the block expressions, are immutable.
