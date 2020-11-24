@@ -100,3 +100,28 @@ A block expression contains a sequence of effective statements separated by comm
 The block expression will evaluate the effects one by one, with possibly modification to variable environments, and return the value of the last effect. This style is similar to Scala.
 
 The global bindings, unlike bindings in the block expressions, are immutable.
+
+### The `Mapping` Datatype
+
+The expression
+```
+{
+    "seed" -> [1, 2, 3],
+    "dataset" -> ["cora", "citeseer", "pubmed"],
+    "model" -> ["GCN", "GAT"]
+}
+```
+will result in a `Mapping` value, which is similar to `dict` in Python and something called map in other languages. It is a key-value mapping, with keys must being `String` types. `Mapping`s are used in Sircle to describe task arguments and tags.
+
+It is possible to access the `Mapping` values by
+```
+config."seed" 
+// => [1, 2, 3]
+```
+and update it with
+```
+config + { "seed" -> [3, 2, 1] } 
+// => { "seed" -> [3, 2, 1], ... }
+```
+
+More details on datatypes will be discussed later.
