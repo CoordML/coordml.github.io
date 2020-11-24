@@ -25,6 +25,10 @@ theme:
 plugins:
   - search
 
+repo_url: https://github.com/linyxus/CoordML
+
+repo_name: Linyxus/CoordML
+
 markdown_extensions:
   - pymdownx.highlight
   - pymdownx.tabbed
