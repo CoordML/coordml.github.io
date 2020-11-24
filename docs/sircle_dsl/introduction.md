@@ -1,11 +1,14 @@
 # Introduction to Sircle
 
+## What is Sircle?
+
 Sircle is a powerful DSL for defining tasks. It is in functional style, supporting first-class functions and currying.
 
 The core of Sircle is the `Task` datatype. It is possible to construct a computational task with
-```
-mkTask "main.py" { "seed" -> 123, "base_model" -> "GCN" } { "base_model" -> "GCN" }
-```
+!!! example
+    ```
+    mkTask "main.py" { "seed" -> 123, "base_model" -> "GCN" } { "base_model" -> "GCN" }
+    ```
 This will create a task with executable `main.py` and arguments. It may be executed by the runner with something like
 ```
 python main.py --seed 123 --base_model GCN  # ... and some other flags
@@ -42,7 +45,7 @@ def resolve = config => mkPar {
 
 On the other hand, from the short example above, we can see some basic properties of Sircle.
 
-## A first glance of Sircle
+## A first glance at Sircle
 
 ### Function application
 
@@ -125,3 +128,41 @@ config + { "seed" -> [3, 2, 1] }
 ```
 
 More details on datatypes will be discussed later.
+
+### Lambdas
+
+The expression
+```
+x => x + 1
+```
+will evaluate to a lambda function. Function definition in Sircle, for instance,
+```
+def add = x: Int => y: Int => x + y
+```
+is simply binding a lambda to a name.
+
+Note that we can use annotations to specify the argument type. The above definition is mostly equivalent to the code in other programming languages:
+
+!!! example
+
+    === "Python"
+        ```Python
+        def add(x: int, y: int):
+            return x + y
+        ```
+
+    === "Scala"
+        ```Scala
+        val add = (x: Int, y: Int) => x + y
+        ```
+
+    === "Haskell"
+        ```Haskell
+        add :: Int -> Int -> Int
+        add x y = x + y
+        ```
+
+Generally, we can define a $n$-arg function with
+```
+def funcName = arg1: Type1 => arg2: Type2 => ... => argN: typeN => bodyExpr
+```
