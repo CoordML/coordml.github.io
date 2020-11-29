@@ -13,6 +13,8 @@ nav:
     - 'Formal Grammar': './sircle_dsl/grammar.md'
   - 'Central Server API':
     - 'Overview': './central_api/overview.md'
+    - 'Worker Management API': './central_api/workers.md'
+    - 'Experiment Management API': './central_api/experiments.md'
   - 'Runner Instance':
     - 'Overview': './runner_api/overview.md'
 
