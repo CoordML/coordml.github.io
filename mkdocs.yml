@@ -19,6 +19,7 @@ nav:
   - 'Runner Instance':
     - 'Overview': './runner_api/overview.md'
     - 'Runner Specification': './runner_api/spec.md'
+    - 'Python Runner Usage': './runner_api/python_runner_usage.md'
 
 theme:
   name: material
