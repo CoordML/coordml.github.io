@@ -18,6 +18,7 @@ nav:
     - 'Experiment Management API': './central_api/experiments.md'
   - 'Runner Instance':
     - 'Overview': './runner_api/overview.md'
+    - 'Runner Specification': './runner_api/spec.md'
 
 theme:
   name: material
@@ -28,9 +29,9 @@ theme:
 plugins:
   - search
 
-repo_url: https://github.com/linyxus/CoordML
+repo_url: https://github.com/CoordML
 
-repo_name: Linyxus/CoordML
+repo_name: CoordML
 
 markdown_extensions:
   - pymdownx.highlight
