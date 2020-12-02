@@ -70,13 +70,13 @@ Get the overview of the specified experiment. The experiment should be specified
 
 List the overview of all experiments.
 
-### Method
-
- `GET`
-
 ### URL
 
 `/api/exp/listOverview`
+
+### Method
+
+ `GET`
 
 ### Parameters
 
@@ -99,13 +99,13 @@ None
 
 List results of the given experiment. The returned results are given in the form of a table.
 
-### Method
-
- `GET`
-
 ### URL
 
 `/api/exp/listResults?expId={exp_id}`
+
+### Method
+
+ `GET`
 
 ### Parameters
 
@@ -124,13 +124,13 @@ Given in the URL.
 
 Get the result view of the given experiment. The view is also returned in the form of a table.
 
-### Method
-
- `GET`
-
 ### URL
 
 `/api/exp/getResultView?expId={exp_id}`
+
+### Method
+
+ `GET`
 
 ### Parameters
 
@@ -149,13 +149,13 @@ Given in the URL.
 
 List rendered tasks. Task arguments and tags are returned in rendered HTML.
 
-### Method
-
- `GET`
-
 ### URL
 
 `/api/exp/listRenderedTasks?expId={exp_id}`
+
+### Method
+
+ `GET`
 
 ### Parameters
 
